@@ -13,3 +13,14 @@ echo "dtoverlay=w1-gpio" >> /boot/config.txt
 sudo modprobe w1-gpio
 sudo modprobe w1-therm
 ```
+
+
+Usage
+```
+
+var Temperature = require('node-rpio-temperature');
+(new Temperature()).on('update', function(temp){
+	console.log(temp.value+' '+temp.units);
+});
+
+```
