@@ -1,0 +1,25 @@
+{
+  "name": "node-rpio-temperature",
+  "version": "1.0.0",
+  "description": "nodejs raspberrypi temperature sensor using GPIO4 ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickolanack/node-rpio-temperature.git"
+  },
+  "keywords": [
+    "raspberrypi",
+    "gpio",
+    "temperature",
+    "sensor"
+  ],
+  "author": "Nick Blackwell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nickolanack/node-rpio-temperature/issues"
+  },
+  "homepage": "https://github.com/nickolanack/node-rpio-temperature#readme"
+}
