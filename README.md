@@ -13,9 +13,24 @@ echo "dtoverlay=w1-gpio" >> /boot/config.txt
 sudo modprobe w1-gpio
 sudo modprobe w1-therm
 ```
+Example
+```
+git clone https://github.com/nickolanack/node-rpio-temperature.git
+cd node-rpio-temperature
+nodejs example/test.js 
 
+#output example
+# Found Device: 10-0008002e03b9
+# 11.1 °C
+# 11.0 °C
+# 11.1 °C
+# 11.0 °C
+# 10.9 °C
+# 11.0 °C
 
-Usage
+```
+
+Library Usage
 ```
 
 var Temperature = require('node-rpio-temperature');
