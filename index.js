@@ -57,9 +57,9 @@ TemperatureSensor.prototype._checkTemperature=function(name){
 			value+='.0';
 		}
 
-		if(me.last!==value){
+		if(me["_"+name]!==value){
 			me.emit('update', {value:value, units:'°C', device:name});
-			me.last=value;
+			me["_"+name]=value;
 		}
 
 	});
