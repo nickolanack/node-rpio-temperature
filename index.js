@@ -22,14 +22,19 @@ TemperatureSensor.prototype._getDevices=function(){
 			throw error;
 		}
 
-		([stdout.split("\n")[0]]).forEach(function(name){
+		(stdout.split("\n")).forEach(function(name){
 
-			console.log('Found Device: '+name);
-			setInterval(function(){
+			if(!isNaN(parseInt(name))){
+				console.log('Found Device: '+name);
+				setInterval(function(){
 
-				me._checkTemperature(name);
+					me._checkTemperature(name);
 
-			}, 5000);
+				}, 5000);
+
+			}
+
+			
 
 		});
 
@@ -53,7 +58,7 @@ TemperatureSensor.prototype._checkTemperature=function(name){
 		}
 
 		if(me.last!==value){
-			me.emit('update', {value:value, units:'°C'});
+			me.emit('update', {value:value, units:'°C', device:name});
 			me.last=value;
 		}
 
