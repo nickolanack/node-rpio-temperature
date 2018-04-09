@@ -31,7 +31,7 @@ nodejs example/test.js
 ```
 
 Library Usage
-```
+```js
 
 var Temperature = require('node-rpio-temperature');
 (new Temperature()).on('update', function(temp){
@@ -42,7 +42,7 @@ var Temperature = require('node-rpio-temperature');
 
 
 Test/Mock Usage
-```
+```js
 
 var Temperature = require('node-rpio-temperature');
 (new Temperature.Mock([{device:"device-1"}, {device:"device-1"}/*, ... more */])).on('update', function(temp){
