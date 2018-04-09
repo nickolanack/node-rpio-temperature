@@ -32,6 +32,9 @@ TemperatureSensor.prototype._getDevices=function(){
 
 				}, 5000);
 
+
+				setTimeout(function(){ me._checkTemperature(name); }, 100);
+
 			}
 
 			
@@ -63,6 +66,61 @@ TemperatureSensor.prototype._checkTemperature=function(name){
 		}
 
 	});
+
+}
+
+
+
+
+
+TemperatureSensor.Mock=function(devices){
+
+	 var me=this;
+   	 events.EventEmitter.call(me);
+   	 me._devices=devices;
+   	 me._getDevices();
+}
+
+TemperatureSensor.Mock.prototype.__proto__=events.EventEmitter.prototype;
+
+TemperatureSensor.Mock.prototype._getDevices=function(){
+	
+	var me=this;
+
+
+	me._devices.forEach(function(device){
+
+	
+		console.log('Mock Device: '+device.device);
+		setInterval(function(){
+			me._checkTemperature(device.device);
+		}, 5000);
+
+		setTimeout(function(){ me._checkTemperature(device.device); }, 100);
+
+		
+
+	});
+
+
+	
+
+};
+
+TemperatureSensor.Mock.prototype._checkTemperature=function(name){
+	var me=this;
+	
+	var fluctuate=[0,0,0,0,0,0.1,0.2,0.3,-0.1,-0.2,-0.3]
+	var value=(25.0+fluctuate[Math.floor(Math.random()*fluctuate.length)])+"";
+	if(value.indexOf('.')<0){
+		value+='.0';
+	}
+
+	if(me["_"+name]!==value){
+		me.emit('update', {value:value, units:'°C', device:name});
+		me["_"+name]=value;
+	}
+
 
 }
 
