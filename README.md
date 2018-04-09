@@ -39,3 +39,14 @@ var Temperature = require('node-rpio-temperature');
 });
 
 ```
+
+
+Test/Mock Usage
+```
+
+var Temperature = require('node-rpio-temperature');
+(new Temperature.Mock([{device:"device-1"}, {device:"device-1"}/*, ... more */])).on('update', function(temp){
+	console.log(temp.value+' '+temp.units);
+});
+
+```
