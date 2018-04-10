@@ -3,6 +3,19 @@ Nodejs temperature sensor for rasberry pi
 
 Assumes you have preconfigured your rpi for 1-WIRE temperature sensor on GPIO4 (using DS18B20)
 
+
+
+EDIT: you can enable 1-Wire by using raspi-config:
+
+```
+sudo raspi-config
+
+ 	# 5 Interfacing Options 
+	# P7 1-Wire 
+	# (Enable)
+
+```
+
 here is another guide (for python but the setup is the same)
 https://www.modmypi.com/blog/ds18b20-one-wire-digital-temperature-sensor-and-the-raspberry-pi
 
